@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه کفش</title>
+  <link rel="stylesheet" href="/style-sheet/landing-page-style.css">
+</head>
+
+<body>
+
+  <%- include('./partial/navigation.ejs') %>
+
+    <div class="products">
+      <% shoeProducts.forEach((product,index)=> { %>
+        <div class="product">
+          <img src="<%= product.image %>" alt=" id=عکس کفش با   <%= product.id %>">
+          <h3 class="shoe-name">
+            <%= product.brand %>
+          </h3>
+          <div class="card-mainpart">
+            <p>
+              رنگ:
+              <span>
+                <%= product.color %>
+              </span>
+            </p>
+            <p>
+              جنس:
+              <span>
+                <%= product.quality %>
+              </span>
+            </p>
+            <p>
+              سایز:
+              <span>
+                <%= product.size %>
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="/product/<%= product.id %>" ">
+              خرید
+            </a>
+            <p class=" product-price">
+              <span>
+                <%= product.price %>
+              </span>
+              </p>
+          </div>
+
+        </div>
+        <% }) %>
+    </div>
+    <script src="/javascript/landing-page.js"></script>
+
+</body>
+
+</html>
