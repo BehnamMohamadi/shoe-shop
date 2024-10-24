@@ -13,6 +13,8 @@ router.get("/products", (request, response) => {
   });
 });
 
+
+
 router.get("/product/:id", (request, response, next) => {
   const { id } = request.params;
 
@@ -20,9 +22,7 @@ router.get("/product/:id", (request, response, next) => {
   if (!product) {
     next(AppError(404, `id=${id} not-found`));
   }
-  response.status(200).render(join(__dirname, "../views/product-page.ejs"), {
-    product,
-  });
+  response.status(200).render(join(__dirname, "../views/product-page.ejs"));
 });
 
 router.get("/home", (request, response) => {

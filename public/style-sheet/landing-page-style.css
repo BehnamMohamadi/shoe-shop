@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
 }
 
+/* navigation */
 .nav-bar {
   padding: 5rem;
   display: flex;
@@ -45,6 +46,8 @@ body {
   color: white;
   border: none;
 }
+
+/* navigation */
 
 .shoe-name {
   max-width: 100%;

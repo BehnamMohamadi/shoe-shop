@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const { join } = require("node:path");
+
 const shoeProducts = require("../dbs/shoes-products-dbs.json");
 
 router.get("/", (request, response) => {
@@ -15,7 +17,11 @@ router.get("/products", (request, response) => {
       product.quality.includes(searchword)
     );
   });
-  response.status(200).json({ status: 200, data: filterShoes });
+  // response.status(200).json({ status: 200, data: filterShoes });
+  response.status(200).render(join(__dirname, "../views/search-page.ejs"), {
+    filterShoes,
+    searchword,
+  });
 });
 
 module.exports = router;
